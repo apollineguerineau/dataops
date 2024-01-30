@@ -1,0 +1,14 @@
+name : Build and deploy API prenoms
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    runs-on: deploy
+
+    steps:
+      - name: Afficher la date
+      run: date
