@@ -19,11 +19,11 @@ jobs:
       - name: Set up SSH key
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ${{SSH_PRIVATE_KEY}}
+          ssh-private-key: ${{secrets.SSH_PRIVATE_KEY}}
 
       - name: SSH into GCP instance and run commands
         run: |
-          ssh -o StrictHostKeyChecking=no -i ${{SSH_PRIVATE_KEY}} instance-apolline@35.188.107.148 << 'ENDSSH'
+          ssh -o StrictHostKeyChecking=no -i ${{secrets.SSH_PRIVATE_KEY}} instance-apolline@35.188.107.148 << 'ENDSSH'
             docker pull gcr.io/ensai-2024/dataops-api-prenom:v1
             docker run -p 80:5000 gcr.io/ensai-2024/dataops-api-prenom:v1
           ENDSSH
