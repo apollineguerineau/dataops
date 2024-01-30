@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
+      
+      - name: Docker build
+        run: docker build -t dataopsapi-prenom .
 
       - name: Install SSH client
         run: sudo apt-get install -y openssh-client
